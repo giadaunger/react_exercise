@@ -1,6 +1,13 @@
 import React from 'react'
+import { useState } from 'react'
 
 function ProductCards() {
+
+    const [numberOfProducts, setNumberOfProducts] = useState(0)
+
+    function handleBuy(event) {
+        setNumberOfProducts(numberOfProducts + 1)
+    }
 
     function addStar(student) {
         if (student === "Tobias") {
@@ -43,30 +50,33 @@ function ProductCards() {
     // let students = ["Melanie", "Giada", "Omar", "Tobias"]
 
     return (
-
-        <div className="grid grid-cols-3 my-20 gap-10">
-            {
-                products.map((product) => {
-                    return <div className="shadow-lg border">
-                        <div>
-                            <img src={product.imageUrl} alt="img" />
-                        </div>
-                        <div className="p-8">
-                            {product.name}
-                            <div>{product.price}</div>
-                            <div className="m-4 flex flex-wrap">
-                                {
-                                    product.features.map((feature) => {
-                                        return <span className="px-4 py-2 my-2 bg-gray-300 rounded-full mr-2 bg-opacity-35">{feature}</span>
-                                    })
-                                }
+        <>
+            <div>Number of products: {numberOfProducts}</div>
+            <div className="grid grid-cols-3 my-20 gap-10">
+                {
+                    products.map((product) => {
+                        return <div className="shadow-lg border">
+                            <div>
+                                <img src={product.imageUrl} alt="img" />
                             </div>
-                            {product.isInStock === false && <div className="text-red-600">Not in stock</div>}
+                            <div className="p-8">
+                                {product.name}
+                                <div>{product.price}</div>
+                                <div className="m-4 flex flex-wrap">
+                                    {
+                                        product.features.map((feature) => {
+                                            return <span className="px-4 py-2 my-2 bg-gray-300 rounded-full mr-2 bg-opacity-35">{feature}</span>
+                                        })
+                                    }
+                                </div>
+                                {product.isInStock === false && <div className="text-red-600">Not in stock</div>}
+                                {<button onClick={handleBuy} className="px-4 py-2 shadow-md rounded-xl hover:bg-gray-200 hover:transition-all">Click me</button>}
+                            </div>
                         </div>
-                    </div>
-                })
-            }
-        </div>
+                    })
+                }
+            </div>
+        </>
 
         // <>
         //     {
