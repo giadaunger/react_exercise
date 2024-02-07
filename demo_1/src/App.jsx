@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCards from './components/ProductCards';
+import ProductList from './components/ProductList';
 
 function App() {
   return (
@@ -7,7 +8,8 @@ function App() {
       <header className='h-20 border-b bg-gray-100'>Header</header>
       <div className='flex-auto'>
         <div className='container mx-auto h-screen'>
-          <ProductCards></ProductCards>
+          <ProductList />
+          {/* <ProductCards></ProductCards> */}
         </div>
       </div>
       <footer className='h-20 border-t bg-gray-200'>Footer</footer>
