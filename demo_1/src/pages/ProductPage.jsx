@@ -1,15 +1,15 @@
 import React from 'react'
-import ProductList from '../components/ProductList'
+import { useParams } from 'react-router-dom'
 
-function Home() {
+function ProductPage() {
+    const {id} = useParams()
     return (
         <div className="flex flex-col min-h-screen">
             <div className="flex-auto">
-                <h1>Home</h1>
-                <ProductList></ProductList>
+                <h1>Product Page {id}</h1>
             </div>
         </div>
     )
 }
 
-export default Home
+export default ProductPage
